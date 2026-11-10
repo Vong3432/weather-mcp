@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Local configuration and secrets — never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials*.json
+*service-account*.json
+*-key.json
+client_secret*.json
+.gcloud/
+
+# Consumer tokens printed by scripts/add_token.py, if you save them to a file
+tokens*.json
+
+**.DS_Store

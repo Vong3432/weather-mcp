@@ -1,0 +1,30 @@
+[project]
+name = "weather-mcp"
+version = "0.1.0"
+description = "Remote MCP server: daily weather forecast for a place and date (Open-Meteo)"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp>=1.20",
+    "httpx>=0.27",
+    "pydantic>=2.7",
+    "google-cloud-secret-manager>=2.20",
+    "uvicorn>=0.30",
+]
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.24", "respx>=0.21"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/weather_mcp"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[project.scripts]
+weather-mcp = "weather_mcp.server:main"

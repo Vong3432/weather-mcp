@@ -1,0 +1,19 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "weather-token",
+      "description": "Weather MCP API token (from scripts/add_token.py)",
+      "password": true
+    }
+  ],
+  "servers": {
+    "weather": {
+      "type": "http",
+      "url": "https://weather-mcp-tfzjshduea-as.a.run.app/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:weather-token}"
+      }
+    }
+  }
+}
